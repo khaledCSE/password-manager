@@ -240,7 +240,7 @@ void updatePassword()
       string updatedAt = currentDateTime();
 
       // Create the updated record
-      string updatedRecord = idToUpdate + "," + platform + "," + name + "," + username + "," + password + "," + url + "," + developer + "\n";
+      string updatedRecord = idToUpdate + "," + platform + "," + name + "," + username + "," + password + "," + url + "," + developer + "," + arr[7] + "," + updatedAt;
       found = true;
       updatedPasswords.push_back(updatedRecord);
     }
@@ -259,14 +259,17 @@ void updatePassword()
 
   // Write the updated passwords to the file
   ofstream file("Passwords.csv");
+  if (!updatedPasswords.empty())
+  {
+    file << updatedPasswords.front();                 // Write the header row
+    updatedPasswords.erase(updatedPasswords.begin()); // Skip the header row
+  }
   for (const auto &updatedRecord : updatedPasswords)
   {
     file << "\n"
          << updatedRecord;
   }
   file.close();
-
-  cout << "Password updated successfully.\n";
 }
 
 void deletePassword()
