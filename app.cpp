@@ -303,8 +303,7 @@ void deletePassword()
   ofstream file("Passwords.csv");
   for (const auto &updatedRecord : updatedPasswords)
   {
-    file << "\n"
-         << updatedRecord;
+    file << updatedRecord << "\n";
   }
   file.close();
 
