@@ -1,1 +1,9 @@
-{}
+{
+  "files.associations": {
+    "*.embeddedhtml": "html",
+    "*.php": "php",
+    "*.css": "css",
+    "*.blade.php": "blade",
+    "xstring": "cpp"
+  }
+}
