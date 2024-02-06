@@ -259,15 +259,9 @@ void updatePassword()
 
   // Write the updated passwords to the file
   ofstream file("Passwords.csv");
-  if (!updatedPasswords.empty())
-  {
-    file << updatedPasswords.front();                 // Write the header row
-    updatedPasswords.erase(updatedPasswords.begin()); // Skip the header row
-  }
   for (const auto &updatedRecord : updatedPasswords)
   {
-    file << "\n"
-         << updatedRecord;
+    file << updatedRecord << "\n";
   }
   file.close();
 }
